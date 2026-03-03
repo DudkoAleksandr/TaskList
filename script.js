@@ -16,7 +16,7 @@ btnClick.addEventListener("click", function () {
   if (input.value != "") {
     const newTask = {
       text: input.value,
-      id: tasksArr.length,
+      id: Date.now(),
       level: selectLevel.value,
       done: true,
     };
@@ -24,7 +24,7 @@ btnClick.addEventListener("click", function () {
     div.innerHTML = "";
     renderTasks();
     input.value = "";
-    console.log(selectLevel.value);
+    console.log(tasksArr);
   }
 });
 
