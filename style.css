@@ -1,17 +1,73 @@
+.container {
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.input__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+.input__btn {
+    display: flex;
+    gap: 40px;
+}
+.input{
+    width: 70%;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(247, 247, 247);
+    text-align: center;
+}
+.select__level {
+    height: 25px;
+    width: 200px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.btn {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 8px;
+    cursor: pointer;
+}
+.btn:hover {
+    border: 1px solid black;
+}
 .green {
-  color: green;
+  background-color: green;
 }
 .yellow {
-    color: rgb(225, 222, 27);
+    background-color: rgb(225, 222, 27);
 }
 .red {
-    color: red;
+    background-color: red;
 }
 .li__task {
+    display: flex;
+    gap: 20px;
     max-width: 400px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    margin: 10px;
 }
-.div {
-    margin-top: 20px;
+.btn__del-task {
+    margin-left: 20px;
+    background: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+.btn__del-task:hover{
+    border: 1px solid black;
+}
+
+.circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
 }

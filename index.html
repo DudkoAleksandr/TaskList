@@ -7,18 +7,27 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <input class="input" type="text" placeholder="Введите задачу"/>
-    <button class="btn__click">Добавить</button>
-    <button class="btn__del">Удалить</button><br /><br />
-    <select class="select__level" name="" id="">
-        <option value="level__low">Low</option>
-        <option value="level__medium">Medium</option>
-        <option value="level__high">High</option>
-    </select>
-    <ol class="div"></ol>
+    <section class="container">
+      <div class="input__main">
+        <input class="input" type="text" placeholder="Введите задачу..." />
+        <div>
+          <select class="select__level" name="" id="">
+            <option value="level__low" selected disabled>
+              Приоритет задачи
+            </option>
+            <option value="level__low">Легкий</option>
+            <option value="level__medium">Средний</option>
+            <option value="level__high">Высокий</option>
+          </select>
+        </div>
+        <div class="input__btn">
+          <button class="btn btn__click">Добавить</button>
+          <button class="btn btn__del">Очистить</button>
+        </div>
+      </div>
+      <ol class="div"></ol>
+    </section>
     <script src="./script.js"></script>
     <script src="./function.js"></script>
   </body>
 </html>
-
-
