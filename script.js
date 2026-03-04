@@ -24,7 +24,7 @@ btnClick.addEventListener("click", function () {
     div.innerHTML = "";
     renderTasks();
     input.value = "";
-    console.log(tasksArr);
+    // console.log(tasksArr);
   }
 });
 
@@ -33,3 +33,4 @@ btnDel.addEventListener("click", function () {
   // tasks.length = 0 первый вариант очистить массив
   tasksArr.splice(0, tasksArr.length); //второй способ
 });
+
