@@ -27,7 +27,12 @@ const renderTasks = () => {
       // console.log(btnsDelTask[i].dataset.id);
         for (let arr of tasksArr) {
           if(Number(btnsDelTask[i].dataset.id) === arr.id){
-            liTask.innerHTML = ''
+            const deltask = tasksArr.find((task) => {
+              if (task.id === Number(btnsDelTask[i].dataset.id)){
+                liTask.innerHTML = ''
+                console.log(task.id)
+              }
+            })
           }
         }
 
