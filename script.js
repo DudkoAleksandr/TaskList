@@ -3,9 +3,12 @@ const btnClick = document.querySelector(".btn__click");
 const input = document.querySelector(".input");
 const btnDel = document.querySelector(".btn__del");
 const selectLevel = document.querySelector(".select__level");
+const search = document.querySelector(".search");
 const tasksArr = [];
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function (event) {
+  event.stopPropagation()
+  event.preventDefault()
   if (tasksArr.length === 0) {
     div.innerHTML = "Нет добавленных задач";
   }
@@ -34,3 +37,6 @@ btnDel.addEventListener("click", function () {
   tasksArr.splice(0, tasksArr.length); //второй способ
 });
 
+search.addEventListener('input', (event) => {
+  console.log(event.target.value)
+})
