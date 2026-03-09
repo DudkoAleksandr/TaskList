@@ -1,74 +1,110 @@
 .container {
-    width: 600px;
-    margin: 0 auto;
-    border: 1px solid black;
-    border-radius: 5px;
+  display: flex;
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.container__nav {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  border-right: 1px solid rgb(177, 179, 177);
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px;
+}
+.container__main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+.hidden__tasks {
+  display: none;
 }
 .input__main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
 }
 .input__btn {
-    display: flex;
-    gap: 40px;
+  display: flex;
+  gap: 40px;
 }
-.input{
-    width: 70%;
-    height: 25px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(247, 247, 247);
-    text-align: center;
+.input {
+  width: 70%;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(247, 247, 247);
+  text-align: center;
 }
 .select__level {
-    height: 25px;
-    width: 200px;
-    text-align: center;
-    border: none;
-    cursor: pointer;
+  height: 25px;
+  width: 200px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
 }
 .btn {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 8px;
-    cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 5px;
+  cursor: pointer;
 }
 .btn:hover {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 .green {
   background-color: green;
 }
 .yellow {
-    background-color: rgb(225, 222, 27);
+  background-color: rgb(225, 222, 27);
 }
 .red {
-    background-color: red;
+  background-color: red;
 }
 .li__task {
-    display: flex;
-    gap: 20px;
-    max-width: 400px;
-    margin: 10px;
+  display: flex;
+  gap: 20px;
+  max-width: 400px;
+  margin: 10px;
 }
 .btn__del-task {
-    margin-left: 20px;
-    background: none;
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 5px;
+  margin-left: 20px;
+  background: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 5px;
 }
-.btn__del-task:hover{
-    border: 1px solid black;
+.btn__del-task:hover {
+  border: 1px solid black;
 }
-
+.btn_controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .circle {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
 }
 
+.search {
+  margin-left: 40px;
+  border: 1px solid rgb(224, 224, 224);
+  text-align: center;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}

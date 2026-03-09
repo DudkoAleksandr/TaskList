@@ -21,7 +21,7 @@ const renderTasks = () => {
   }
   delTask();
   if (tasksArr.length === 0) {
-    div.innerHTML = "Нет добавленных задач";
+    div.innerHTML = "Нет новых задач";
   }
 };
 
