@@ -1,11 +1,11 @@
-const renderTasks = () => {
+const renderTasks = (arr) => {
   div.innerHTML = "";
-  for (let i = 0; i < tasksArr.length; i++) {
-    let textTask = tasksArr[i].text;
+  for (let i = 0; i < arr.length; i++) {
+    let textTask = arr[i].text;
     let colorClass = "";
-    if (tasksArr[i].level === "level__low") {
+    if (arr[i].level === "level__low") {
       colorClass = "green";
-    } else if (tasksArr[i].level === "level__medium") {
+    } else if (arr[i].level === "level__medium") {
       colorClass = "yellow";
     } else {
       colorClass = "red";
@@ -14,13 +14,13 @@ const renderTasks = () => {
     const html = `
   <li class="li__task"><span class="circle ${colorClass}"></span>  
  ${textTask}
-  <button data-id="${tasksArr[i].id}" class="btn__del-task">Удалить</button>
+  <button data-id="${arr[i].id}" class="btn__del-task">Удалить</button>
   </li>
     `;
     div.insertAdjacentHTML("beforeend", html);
   }
   delTask();
-  if (tasksArr.length === 0) {
+  if (arr.length === 0) {
     div.innerHTML = "Нет новых задач";
   }
 };
@@ -43,8 +43,8 @@ function delTask() {
       });
       tasksArr.splice(deltask, 1);
 
-      renderTasks();
-      console.log(tasksArr);
+      renderTasks(tasksArr);
     });
   }
 }
+

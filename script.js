@@ -1,24 +1,22 @@
 const div = document.querySelector(".div");
 const btnClick = document.querySelector(".btn__click");
 const input = document.querySelector(".input");
-const hiddenBlock = document.querySelector(".hidden__tasks");
+const hiddenBlock = document.querySelector(".form");
 const btnAddTask = document.querySelector(".add__task");
 const btnDel = document.querySelector(".btn__del");
 const selectLevel = document.querySelector(".select__level");
 const search = document.querySelector(".search");
 const tasksArr = [];
 
-document.addEventListener("DOMContentLoaded", function (event) {
-  event.stopPropagation();
-  event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
   if (tasksArr.length === 0) {
     div.innerHTML = "Нет добавленных задач";
   }
-  renderTasks();
+  renderTasks(tasksArr);
 });
 
 btnAddTask.addEventListener("click", () => {
-  hiddenBlock.classList.remove("hidden__tasks");
+  hiddenBlock.classList.toggle("hidden__tasks");
 });
 
 btnClick.addEventListener("click", function () {
@@ -31,7 +29,7 @@ btnClick.addEventListener("click", function () {
     };
     tasksArr.push(newTask);
     div.innerHTML = "";
-    renderTasks();
+    renderTasks(tasksArr);
     input.value = "";
   }
   hiddenBlock.classList.add("hidden__tasks");
@@ -50,9 +48,10 @@ search.addEventListener("input", (event) => {
   const searchTasksArr = [];
 
   for (let taskArr of tasksArr) {
-    if (taskArr.text.startsWith(search.value)) {
-      searchTasksArr.push(taskArr.text);
+    if (taskArr.text.includes(search.value)) {
+      searchTasksArr.push(taskArr);
     }
   }
-  console.log(searchTasksArr);
+  renderTasks(searchTasksArr)
 });
+

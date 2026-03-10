@@ -13,33 +13,34 @@
         <button class="btn btn__del" type="button">Очистить</button>
       </nav>
       <div class="container__main">
-      <div class="hidden__tasks">
-        <div class="input__main">
-          <input class="input" type="text" placeholder="Введите задачу" />
-          <div>
-            <select class="select__level" name="" id="">
-              <option value="level__low" selected disabled>
-                Приоритет задачи
-              </option>
-              <option value="level__low">Легкий</option>
-              <option value="level__medium">Средний</option>
-              <option value="level__high">Высокий</option>
-            </select>
-          </div>
-          <div class="input__btn">
-            <button class="btn btn__click" type="button">Добавить</button>
+        <div class="form hidden__tasks">
+          <div class="input__main">
+            <input class="input" type="text" placeholder="Введите задачу" />
+            <div>
+              <select class="select__level" name="" id="">
+                <option value="level__low" selected disabled>
+                  Приоритет задачи
+                </option>
+                <option value="level__low">Легкий</option>
+                <option value="level__medium">Средний</option>
+                <option value="level__high">Высокий</option>
+              </select>
+            </div>
+            <div class="input__btn">
+              <button class="btn btn__click" type="button">Добавить</button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- <div class="btn_controls">
+        <!-- <div class="btn_controls">
         <button class="btn add__task">Добавить задачу</button>
         <button class="btn btn__del">Очистить</button>
       </div> -->
-      <input class="search" type="text" placeholder="Поиск задач" />
-      <ol class="div"></ol>
+        <input class="search" type="text" placeholder="Поиск задач" />
+        <ol class="div"></ol>
       </div>
     </section>
     <script src="./script.js"></script>
     <script src="./function.js"></script>
+    <script src="./storage.js"></script>
   </body>
 </html>
