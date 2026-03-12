@@ -27,6 +27,8 @@ btnClick.addEventListener("click", function () {
       level: selectLevel.value,
       done: true,
     };
+    localStorage.setItem("newTask", JSON.stringify(newTask));
+    console.log(JSON.parse(localStorage.getItem("newTask")));
     tasksArr.push(newTask);
     div.innerHTML = "";
     renderTasks(tasksArr);
