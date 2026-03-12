@@ -6,6 +6,7 @@ const btnAddTask = document.querySelector(".add__task");
 const btnDel = document.querySelector(".btn__del");
 const selectLevel = document.querySelector(".select__level");
 const search = document.querySelector(".search");
+const modalClose = document.querySelector(".modal__close");
 const tasksArr = [];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -45,6 +46,11 @@ btnDel.addEventListener("click", function () {
   div.innerHTML = "Нет новых задач";
 });
 
+modalClose.addEventListener("click", () => {
+  hiddenBlock.classList.add("hidden__tasks");
+  input.value = ''
+});
+
 search.addEventListener("input", (event) => {
   // console.log(event.target.value);
   const searchTasksArr = [];
@@ -54,6 +60,5 @@ search.addEventListener("input", (event) => {
       searchTasksArr.push(taskArr);
     }
   }
-  renderTasks(searchTasksArr)
+  renderTasks(searchTasksArr);
 });
-
