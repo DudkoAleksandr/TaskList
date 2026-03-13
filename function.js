@@ -42,9 +42,9 @@ function delTask() {
         }
       });
       tasksArr.splice(deltask, 1);
+      localStorage.setItem("Tasks", JSON.stringify(tasksArr));
 
       renderTasks(tasksArr);
     });
   }
 }
-

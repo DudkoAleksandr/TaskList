@@ -7,8 +7,8 @@ const btnDel = document.querySelector(".btn__del");
 const selectLevel = document.querySelector(".select__level");
 const search = document.querySelector(".search");
 const modalClose = document.querySelector(".modal__close");
-const tasksArr = [];
-
+const tasksArr = JSON.parse(localStorage.getItem("Tasks")) || [];
+console.log(tasksArr)
 document.addEventListener("DOMContentLoaded", function () {
   if (tasksArr.length === 0) {
     div.innerHTML = "Нет добавленных задач";
@@ -28,9 +28,9 @@ btnClick.addEventListener("click", function () {
       level: selectLevel.value,
       done: true,
     };
-    localStorage.setItem("newTask", JSON.stringify(newTask));
-    console.log(JSON.parse(localStorage.getItem("newTask")));
     tasksArr.push(newTask);
+    localStorage.setItem("Tasks", JSON.stringify(tasksArr));
+    console.log(JSON.parse(localStorage.getItem("Tasks")));
     div.innerHTML = "";
     renderTasks(tasksArr);
     input.value = "";
@@ -42,13 +42,14 @@ btnDel.addEventListener("click", function () {
   div.innerHTML = "";
   // tasks.length = 0 первый вариант очистить массив
   tasksArr.splice(0, tasksArr.length); //второй способ
+  localStorage.setItem("Tasks", JSON.stringify(tasksArr));
   hiddenBlock.classList.add("hidden__tasks");
   div.innerHTML = "Нет новых задач";
 });
 
 modalClose.addEventListener("click", () => {
   hiddenBlock.classList.add("hidden__tasks");
-  input.value = ''
+  input.value = "";
 });
 
 search.addEventListener("input", (event) => {
