@@ -1,14 +1,16 @@
 const div = document.querySelector(".div");
 const btnClick = document.querySelector(".btn__click");
+const themeTask = document.querySelector(".theme__task");
 const input = document.querySelector(".input");
 const hiddenBlock = document.querySelector(".form");
 const btnAddTask = document.querySelector(".add__task");
 const btnDel = document.querySelector(".btn__del");
 const selectLevel = document.querySelector(".select__level");
 const search = document.querySelector(".search");
+const sortTasks = document.querySelector(".select__sort-tasks");
 const modalClose = document.querySelector(".modal__close");
 const tasksArr = JSON.parse(localStorage.getItem("Tasks")) || [];
-console.log(tasksArr)
+console.log(tasksArr);
 document.addEventListener("DOMContentLoaded", function () {
   if (tasksArr.length === 0) {
     div.innerHTML = "Нет добавленных задач";
@@ -23,6 +25,7 @@ btnAddTask.addEventListener("click", () => {
 btnClick.addEventListener("click", function () {
   if (input.value != "") {
     const newTask = {
+      theme: themeTask.value,
       text: input.value,
       id: Date.now(),
       level: selectLevel.value,
@@ -33,6 +36,7 @@ btnClick.addEventListener("click", function () {
     console.log(JSON.parse(localStorage.getItem("Tasks")));
     div.innerHTML = "";
     renderTasks(tasksArr);
+    themeTask.value = "";
     input.value = "";
   }
   hiddenBlock.classList.add("hidden__tasks");
@@ -62,4 +66,17 @@ search.addEventListener("input", (event) => {
     }
   }
   renderTasks(searchTasksArr);
+});
+
+
+
+sortTasks.addEventListener("change", () => {
+
+  if (sortTasks.value === "name__task") {
+    tasksArr.sort((a, b) => a.theme.localeCompare(b.theme))
+    renderTasks(tasksArr);
+  } else if (sortTasks.value === "main__task") {
+    tasksArr.sort((a, b) => a.text.localeCompare(b.text));
+    renderTasks(tasksArr);
+  }
 });

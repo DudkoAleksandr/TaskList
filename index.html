@@ -16,6 +16,7 @@
         <div class="form hidden__tasks modal">
           <div class="input__main modal__container">
             <button class="modal__close">X</button>
+            <input class="theme__task" type="text" placeholder="Название задачи">
             <input class="input" type="text" placeholder="Введите задачу" />
             <div>
               <select class="select__level" name="" id="">
@@ -32,11 +33,12 @@
             </div>
           </div>
         </div>
-        <!-- <div class="btn_controls">
-        <button class="btn add__task">Добавить задачу</button>
-        <button class="btn btn__del">Очистить</button>
-      </div> -->
         <input class="search" type="text" placeholder="Поиск задач" />
+        <select class="select__sort-tasks" name="" id="">
+          <option value="" selected disabled>Сортировать по:</option>
+          <option value="name__task">Назвнию задачи</option>
+          <option value="main__task">Описанию задачи</option>
+        </select>
         <ol class="div"></ol>
       </div>
     </section>
