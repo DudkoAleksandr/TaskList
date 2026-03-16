@@ -30,6 +30,7 @@ btnClick.addEventListener("click", function () {
       id: Date.now(),
       level: selectLevel.value,
       done: true,
+      check: ''
     };
     tasksArr.push(newTask);
     localStorage.setItem("Tasks", JSON.stringify(tasksArr));
@@ -68,15 +69,13 @@ search.addEventListener("input", (event) => {
   renderTasks(searchTasksArr);
 });
 
-
-
 sortTasks.addEventListener("change", () => {
-
   if (sortTasks.value === "name__task") {
-    tasksArr.sort((a, b) => a.theme.localeCompare(b.theme))
+    tasksArr.sort((a, b) => a.theme.localeCompare(b.theme));
     renderTasks(tasksArr);
   } else if (sortTasks.value === "main__task") {
     tasksArr.sort((a, b) => a.text.localeCompare(b.text));
     renderTasks(tasksArr);
   }
 });
+

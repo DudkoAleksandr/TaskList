@@ -15,9 +15,26 @@ const renderTasks = (arr) => {
   <li class="li__task"><span class="circle ${colorClass}"></span>  
  ${textTask}
   <button data-id="${arr[i].id}" class="btn__del-task">Удалить</button>
+          <div>
+          <input class="checkbox" type="checkbox" />
+          <span class="check__span"></span>
+        </div>
+
   </li>
     `;
+
     div.insertAdjacentHTML("beforeend", html);
+    const checkbox = document.querySelector(".checkbox");
+
+    checkbox.addEventListener("change", () => {
+      const checkSpan = document.querySelector(".check__span");
+      if (checkbox.checked === true) {
+        textTask.check = "true";
+        checkSpan.innerHTML = "Выполнено";
+      } else if (checkbox.checked === false) {
+        checkSpan.innerHTML = "";
+      }
+    });
   }
   delTask();
   if (arr.length === 0) {
