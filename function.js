@@ -10,32 +10,29 @@ const renderTasks = (arr) => {
     } else {
       colorClass = "red";
     }
+    // console.log(arr[i].check);
+    let resultCheck = "";
+    let resultWin = "";
+    if (arr[i].check === true) {
+      resultCheck = "checked";
+      resultWin = "Выполнено";
+    }
 
     const html = `
   <li class="li__task"><span class="circle ${colorClass}"></span>  
  ${textTask}
   <button data-id="${arr[i].id}" class="btn__del-task">Удалить</button>
           <div>
-          <input class="checkbox" type="checkbox" />
-          <span class="check__span"></span>
+          <input class="checkbox" type="checkbox" ${resultCheck} />
+          <span class="check__span">${resultWin}</span>
         </div>
 
   </li>
     `;
 
     div.insertAdjacentHTML("beforeend", html);
-    const checkbox = document.querySelector(".checkbox");
-
-    checkbox.addEventListener("change", () => {
-      const checkSpan = document.querySelector(".check__span");
-      if (checkbox.checked === true) {
-        textTask.check = "true";
-        checkSpan.innerHTML = "Выполнено";
-      } else if (checkbox.checked === false) {
-        checkSpan.innerHTML = "";
-      }
-    });
   }
+  checkTask();
   delTask();
   if (arr.length === 0) {
     div.innerHTML = "Нет новых задач";
@@ -65,3 +62,39 @@ function delTask() {
     });
   }
 }
+
+function checkTask() {
+  const checkbox = document.querySelectorAll(".checkbox");
+  const checkSpan = document.querySelectorAll(".check__span");
+
+  checkbox.forEach((el, i) => {
+    el.addEventListener("change", () => {
+      if (el.checked === true) {
+        tasksArr[i].check = true;
+        localStorage.setItem("Tasks", JSON.stringify(tasksArr));
+        checkSpan[i].innerHTML = "Выполнено";
+      } else if (el.checked === false) {
+        tasksArr[i].check = false;
+        localStorage.setItem("Tasks", JSON.stringify(tasksArr));
+        checkSpan[i].innerHTML = "";
+      }
+    });
+  });
+}
+
+selectShow.addEventListener("change", (event) => {
+  const filterTasks = [];
+  if (event.target.value === "win__task") {
+    for (let obj of tasksArr) {
+      if (obj.check === true) {
+        filterTasks.push(obj);
+      }
+    } 
+  } else if (event.target.value === "all-win__task") {
+    for (let obj of tasksArr) {
+        filterTasks.push(obj);
+    }
+  }
+    
+    renderTasks(filterTasks);
+});

@@ -10,7 +10,8 @@ const search = document.querySelector(".search");
 const sortTasks = document.querySelector(".select__sort-tasks");
 const modalClose = document.querySelector(".modal__close");
 const tasksArr = JSON.parse(localStorage.getItem("Tasks")) || [];
-console.log(tasksArr);
+const selectShow = document.querySelector(".select__show-tasks");
+
 document.addEventListener("DOMContentLoaded", function () {
   if (tasksArr.length === 0) {
     div.innerHTML = "Нет добавленных задач";
@@ -29,8 +30,7 @@ btnClick.addEventListener("click", function () {
       text: input.value,
       id: Date.now(),
       level: selectLevel.value,
-      done: true,
-      check: ''
+      check: '',
     };
     tasksArr.push(newTask);
     localStorage.setItem("Tasks", JSON.stringify(tasksArr));
