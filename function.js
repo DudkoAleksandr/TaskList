@@ -2,15 +2,18 @@ const renderTasks = (arr) => {
   div.innerHTML = "";
   for (let i = 0; i < arr.length; i++) {
     let textTask = arr[i].text;
+    let themeTask = arr[i].theme;
     let colorClass = "";
     if (arr[i].level === "level__low") {
       colorClass = "green";
     } else if (arr[i].level === "level__medium") {
       colorClass = "yellow";
-    } else {
+    } else if (arr[i].level === "level__high") {
       colorClass = "red";
+    } else {
+      colorClass = "gray";
     }
-    // console.log(arr[i].check);
+
     let resultCheck = "";
     let resultWin = "";
     if (arr[i].check === true) {
@@ -19,15 +22,20 @@ const renderTasks = (arr) => {
     }
 
     const html = `
-  <li class="li__task"><span class="circle ${colorClass}"></span>  
- ${textTask}
-  <button data-id="${arr[i].id}" class="btn__del-task">Удалить</button>
-          <div>
-          <input class="checkbox" type="checkbox" ${resultCheck} />
-          <span class="check__span">${resultWin}</span>
-        </div>
-
-  </li>
+<li class="li__task">
+  <div class="tasks">
+    <span class="circle ${colorClass}"></span>
+    <div>
+      <p>Тема: ${themeTask}</p>
+      <p>Задача: ${textTask}</p>
+    </div>
+    <button data-id="${arr[i].id}" class="btn__del-task">Удалить</button>
+    <div>
+      <input class="checkbox" type="checkbox" ${resultCheck} />
+      <span class="check__span">${resultWin}</span>
+    </div>
+  </div>
+</li>
     `;
 
     div.insertAdjacentHTML("beforeend", html);
@@ -83,18 +91,38 @@ function checkTask() {
 }
 
 selectShow.addEventListener("change", (event) => {
-  const filterTasks = [];
+// const filterTasks = []
+  // if (event.target.value === "win__task") {
+  //   for (let obj of tasksArr) {
+  //     if (obj.check === true) {
+  //       filterTasks.push(obj);
+  //     }
+  //   }
+  // } else if (event.target.value === "all-win__task") {
+  //   for (let obj of tasksArr) {
+  //       filterTasks.push(obj);
+  //   }
+  // }
+
+  //   renderTasks(filterTasks);
+
   if (event.target.value === "win__task") {
-    for (let obj of tasksArr) {
-      if (obj.check === true) {
-        filterTasks.push(obj);
-      }
-    } 
+    filterTasks = tasksArr.filter((task) => {
+      return task.check === true;
+    });
   } else if (event.target.value === "all-win__task") {
-    for (let obj of tasksArr) {
-        filterTasks.push(obj);
-    }
+    filterTasks = tasksArr;
   }
-    
-    renderTasks(filterTasks);
+  // if (event.target.value === "win__task") {
+  //   for (let obj of tasksArr) {
+  //     if (obj.check === true) {
+  //       filterTasks.push(obj);
+  //     }
+  //   }
+  // } else if (event.target.value === "all-win__task") {
+  //   for (let obj of tasksArr) {
+  //     filterTasks.push(obj);
+  //   }
+  // }
+  renderTasks(filterTasks);
 });

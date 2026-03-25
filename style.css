@@ -109,11 +109,19 @@
 .red {
   background-color: red;
 }
+.gray {
+  background-color: rgb(225, 225, 225);
+}
 .li__task {
   display: flex;
   gap: 20px;
   max-width: 400px;
   margin: 10px;
+}
+.tasks{
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .btn__del-task {
   margin-left: 20px;
@@ -156,3 +164,4 @@
   border-radius: 5px;
   margin-top: 10px;
 }
+

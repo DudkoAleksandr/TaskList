@@ -58,7 +58,7 @@ modalClose.addEventListener("click", () => {
 });
 
 search.addEventListener("input", (event) => {
-  // console.log(event.target.value);
+
   const searchTasksArr = [];
 
   for (let taskArr of tasksArr) {
